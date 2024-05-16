@@ -10,6 +10,6 @@ public class Currency {
     @Id
     private Long id;
 
-    private String currencyName;
+    private String currencyCode;
 
 }
