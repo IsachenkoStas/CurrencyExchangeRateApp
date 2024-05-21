@@ -1,6 +1,7 @@
 package com.example.currencyexchangerateapp.security;
 
 
+import com.example.currencyexchangerateapp.security.service.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +34,6 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/security", "POST")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/security/user-registration", "POST")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/security/user-registration", "POST")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/currency")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/currency-rates")).permitAll()

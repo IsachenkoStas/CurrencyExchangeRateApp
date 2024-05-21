@@ -1,12 +1,12 @@
 package com.example.currencyexchangerateapp.security.service;
 
 
+import com.example.currencyexchangerateapp.exception_resolver.UserAlreadyExistsException;
 import com.example.currencyexchangerateapp.security.domain.Role;
 import com.example.currencyexchangerateapp.security.domain.UserCredentials;
 import com.example.currencyexchangerateapp.security.domain.dto.RegistrationDTO;
 import com.example.currencyexchangerateapp.security.repository.UserCredentialsRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +24,7 @@ public class SecurityService {
     public void registration(RegistrationDTO registrationDTO) {
         Optional<UserCredentials> result = userCredentialsRepository.findByUsername(registrationDTO.getUsername());
         if (result.isPresent()) {
-            throw new UsernameNotFoundException("User with this login already exists");
+            throw new UserAlreadyExistsException("User with username: " + registrationDTO.getUsername() +" already exists");
         }
 
         UserCredentials userCredentials = new UserCredentials();

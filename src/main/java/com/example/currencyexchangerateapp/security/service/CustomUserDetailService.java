@@ -1,4 +1,4 @@
-package com.example.currencyexchangerateapp.security;
+package com.example.currencyexchangerateapp.security.service;
 
 import com.example.currencyexchangerateapp.security.domain.UserCredentials;
 import com.example.currencyexchangerateapp.security.repository.UserCredentialsRepository;
