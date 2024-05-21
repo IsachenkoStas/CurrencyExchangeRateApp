@@ -12,3 +12,12 @@ CREATE TABLE currency
     id            bigserial primary key,
     currency_code varchar not null
 );
+
+CREATE TABLE user_credentials
+(
+    id        bigserial primary key,
+    username  varchar(20)                                not null,
+    password  varchar                                    not null,
+    user_role varchar default 'USER':: character varying not null
+
+)
